@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OanhNVH_JS_Buoi15</title>
+    <!-- BS4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="w-50">
+            <h1>1. Admissions Manager</h1>
+            <form>
+                <div class="form-group">
+                    <label for="">Điểm chuẩn:</label>
+                    <input type="number" class="form-control" id="inpDiemChuan" placeholder="Điểm chuẩn">
+                </div>
+                <div class="form-group">
+                    <label for="">Điểm thi:</label>
+                    <input type="number" class="form-control  mb-2" id="inpDiem1" placeholder="Điểm môn 1">
+                    <input type="number" class="form-control mb-2" id="inpDiem2" placeholder="Điểm môn 2">
+                    <input type="number" class="form-control" id="inpDiem3" placeholder="Điểm môn 3">
+                </div>
+                <div class="form-group">
+                    <label for="">Điểm ưu tiên:</label>
+                    <select name="dlKhuVuc" id="dlKhuVuc"  class="d-block mb-2 w-100 p-1">
+                        <option value="0">Chọn khu vực</option>
+                        <option value="2">A</option>
+                        <option value="1">B</option>
+                        <option value="0.5">C</option>
+                    </select>
+                    <select name="dlDoiTuong" id="dlDoiTuong"  class="d-block w-100  p-1">
+                        <option value="0">Chọn đối tượng</option>
+                        <option value="2.5">1</option>
+                        <option value="1.5">2</option>
+                        <option value="1">3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button id="btnKetQuaTuyenSinh" type="button" class="btn btn-primary rounded-pill px-5">Kết quả</button>
+                </div>
+                <p id="txtKetQuaTuyenSinh" class="alert alert-success p-4"></p>
+            </form>
+            <h1 class="mt-5">2. Electricity Bill</h1>
+            <form> <!--class="w-25"-->
+                <div class="form-group">
+                    <label for="">Quy tắc:</label>
+                    <ul>
+                        <li>50kw đầu: 500d/kw</li>
+                        <li>50kw kế: 650d/kw</li>
+                        <li>100kw kế: 850d/kw</li>
+                        <li>150kw kế: 1100d/kw</li>
+                        <li>Còn lại: 1300d/kw</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="">Họ Tên:</label>
+                    <input type="text" class="form-control" id="inpHoTen" placeholder="Nhập họ tên">
+                </div>
+                <div class="form-group">
+                    <label for="">Số kw:</label>
+                    <input type="number" class="form-control" id="inpKW" placeholder="Nhập số kw">
+                </div>
+                <div class="form-group">
+                    <button id="btnTinhTienDien" type="button" class="btn btn-primary px-5 rounded-pill">Tính Tiền Điện</button>
+                </div>
+                <p id="txtTinhTienDien" class="alert alert-success p-4"></p>
+                
+            </form>
+            <h1 class="mt-5">3. Calculate Personal Income Tax</h1>
+            <form>
+                <div class="form-group">
+                    <label for="">Cách tính thuế:</label>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Thu nhập chịu thuế(triệu)</td>
+                            <td>Thuế suất(%)</td>
+                        </tr>
+                        <tr>
+                            <td>Đến 60</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 60 dến 120</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 120 đến  210</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 210 đến 384</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 384 đến 624</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 624 đến 960</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Trên 960</td>
+                            <td>35</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                <div class="form-group">
+                    <label for="">Họ tên:</label>
+                    <input type="text" class="form-control" id="inpHoTen1" placeholder="Nhập họ tên">
+                </div>
+                <div class="form-group">
+                    <label for="">Tổng thu nhập năm (TR):</label>
+                    <input type="number" class="form-control" id="inpThuNhapNam" placeholder="Nhập tổng thu nhập năm">
+                </div>
+                <div class="form-group">
+                    <label for="">Số người phụ thuộc:</label>
+                    <input type="number" class="form-control" id="inpSoNguoiPT" placeholder="Nhập số người phụ thuộc">
+                </div>
+                <div class="form-group">
+                    <button onclick="TinhTienThueTNCN()" id="btnTinhTienThue" type="button" class="btn btn-primary rounded-pill px-5">Tính Tiền Thuế</button>
+                </div>
+                <p id="txtTinhTienThue" class="alert alert-success p-4"></p>
+                
+            </form>
+            <h1 class="mt-5">4. Cab Charge</h1>
+            <form> <!-- class="w-25" -->
+                <div class="form-group">
+                    <label for="">Loai Khách Hàng:</label>
+                    <select name="loaiKH" id="loaiKH" class="d-block w-100 p-1">
+                        <option value="0">Chọn loại khách hàng</option>
+                        <option value="1">Nhà dân</option>
+                        <option value="2">Doanh nghiệp</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Mã khách hàng:</label>
+                    <input type="text" class="form-control" id="inpMaKH" placeholder="Nhập mã khách hàng">
+                </div>
+                <div class="form-group">
+                    <label for="">Số Kênh:</label>
+                    <input type="number" class="form-control" value="0" id="inpSoKenhCaoCap" placeholder="Số kênh cao cấp">
+                </div>
+                <div class="form-group">
+                    <label for=""  style="visibility: hidden" id="lbSoKetNoi">Số Kết Nối:</label>
+                    <input type="number" class="form-control" value="10" id="inpSoKetNoi" placeholder="Số kết nối" style="visibility: hidden">
+                </div>
+                <div class="form-group">
+                    <button id="btnTinhTienCab" type="button" class="btn btn-primary rounded-pill px-5">Kết quả</button>
+                </div>
+                <p id="txtTinhTienCab" class="alert alert-success p-4"></p>
+            </form>
+        </div>
+    </div>
+    <!-- BS4  -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- MAIN JS -->
+    <script src="./js/exercise1.js"></script>
+    <script src="./js/exercise2.js"></script>
+    <script src="./js/exercise3.js"></script>
+    <script src="./js/exercise4.js"></script>
+    
+
+</body>
+
+</html>
